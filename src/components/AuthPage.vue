@@ -1,11 +1,16 @@
+// langs: ts, setup, html
 <script lang="ts" setup>
+// useAsyncState: https://vueuse.org/core/useAsyncState/
 import { useAsyncState } from '@vueuse/core'
 import { useUserStore } from '@/stores/useUserStore'
 
 const errors = ref({})
+// useRoute: https://next.router.vuejs.org/api/#useRoute
 const route = useRoute()
+// useRouter: https://next.router.vuejs.org/api/#useRouter
 const router = useRouter()
 const { handleAuthAction } = useUserStore()
+// typescript as: https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions
 const isRegister = (route.name as string) === 'Register'
 const formStore = ref({ username: '', email: '', password: '' })
 const { isLoading, execute: onSubmit } = useAsyncState(

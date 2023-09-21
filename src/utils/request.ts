@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const instance = axios.create({
   timeout: 10000,
+  // import.meta.env.VITE_BASE_URL is set in .env files
   baseURL: import.meta.env.VITE_BASE_URL
 })
 

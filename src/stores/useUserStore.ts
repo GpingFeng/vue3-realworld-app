@@ -2,7 +2,9 @@ import api from '@/api'
 import type { User, UserInfo } from '@/types'
 
 export const useUserStore = defineStore('user', () => {
+  // ref is a reactive reference to the value passed in
   const userInfo = ref<UserInfo | null>(null)
+  // computed is a reactive reference to the value returned by the getter function
   const isLoggedIn = computed(() => userInfo.value !== null)
   const updateUserInfo = (user: UserInfo) => {
     userInfo.value = user
